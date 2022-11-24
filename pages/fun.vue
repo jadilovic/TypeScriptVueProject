@@ -82,12 +82,77 @@ type Admin = {
 let guy: Guest | Admin = {name: "boy", id: 33}
 
 let getId = (id: number | string) => {
-    return `Id is ${id}`
+    if (typeof id === "string"){
+       return id.toUpperCase();
+    } else {
+       return id.toFixed(2);
+    }
 }
 
 getId(4);
 getId("5");
 
-console.log("Hellow World!", getId(55));
+const data: (string | number)[] = [1, 2, 3, "r"];
+
+let airplaneSeat: "aisel" | "middle" | "window";
+
+airplaneSeat = "middle";
+
+let boy: (string | number)[] = [1, "2", 1, "3"];
+
+let girl: [string, number] = ["rt", 4];
+
+let rgb: [number, number, number];
+rgb = [33, 33, 55];
+
+// tuple
+
+type tUser = [number, string];
+
+let tUser1: tUser = [44, "what"];
+
+enum SeatChoice {
+    WINDOW = "uuu",
+    MIDDLE = "uuu",
+    ROW = 8,
+    FOURTH
+}
+
+let jaSeat = SeatChoice.FOURTH;
+
+interface Big {
+    readonly dbId: number,
+    name: string,
+    usrId: number,
+    googleId: number,
+    startTrail(): string,
+    getCupon(name: string):
+    number
+}
+
+interface Big {
+    githubId: string
+}
+
+interface Rule extends Big {
+    role: "admin" | "guest" | "employee"
+}
+
+const kUser: Rule = {
+    dbId: 33, 
+    name: "aki", 
+    usrId: 99, 
+    googleId: 09, 
+    githubId: "lone",
+    role: "guest",
+    startTrail: () => {
+        return "hello"
+    },
+    getCupon: (userName: "hi") => {
+        return 5
+    }
+}
+
+console.log("Hellow World!", kUser.name);
 
 </script>
